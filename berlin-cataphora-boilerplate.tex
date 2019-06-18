@@ -1,0 +1,34 @@
+\usetheme[titleformat=smallcaps]{metropolis}
+
+\usefonttheme{professionalfonts}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{libertine}
+\usepackage{textcomp} % required to get special symbols
+\usepackage[varqu,varl]{inconsolata}
+\usepackage{amsthm}% must be loaded before newtxmath
+\usepackage[scr=rsfso]{mathalfa}
+\usepackage[cmintegrals, cmbraces, libertine,vvarbb]{newtxmath}
+\usepackage{bm}% load after all math to give access to bold math
+\makeatletter
+\AtBeginDocument{\def\libertine@figurealign{}\libertineOsF}
+\makeatother
+
+\usepackage{linguex,qtree}
+
+\usepackage{microtype}
+
+\input{ling-common.def}
+
+\usecolortheme[snowy]{owl}
+\setbeamerfont{title}{shape=\itshape,family=\rmfamily,series=\mdseries,size=\LARGE}
+\setbeamerfont{subtitle}{shape=\itshape,family=\rmfamily,series=\mdseries,size=\large}
+\setbeamerfont{section title}{shape=\itshape,family=\rmfamily,series=\mdseries,size=\LARGE}
+\setbeamerfont{author}{family=\sffamily,series=\mdseries,shape=\scshape}
+\setbeamerfont{date}{family=\sffamily,series=\mdseries,shape=\scshape}
+\setbeamerfont{institute}{family=\sffamily,series=\mdseries,shape=\scshape}
+\setbeamerfont{frametitle}{series=\mdseries}
+
+\usepackage{acronym}
+\renewcommand{\acsfont}[1]{\textsc{#1}}
