@@ -7,7 +7,8 @@
 %YS reduce left and right margin to fit long examples in one line
 \setbeamersize{text margin left=20pt, text margin right=20pt}
 %YS \elide
-\newcommand{\elide}[1]{\ensuremath{\braket{\text{\textcolor{gray}{#1}}}}}
+\usepackage[normalem]{ulem}
+\newcommand{\elide}[1]{\ensuremath{\textcolor{red}{\braket{\text{\sout{\textcolor{gray}{#1}}}}}}}
 
 \addbibresource[location=remote]{berlin-cataphora.bib}
 
@@ -35,14 +36,14 @@
 Anaphora with indefinite antecedents shows left-to-right asymmetry.
 
 \ex.
-  \a. \alert{A$^x$ man} came in, and \alert{he$_x$} sat down.
-  \b. \#\alert{He$^x$} came in, and \alert{a$^x$ man} sat down.
+  \a. \alert{A man$^x$} came in, and \textbf{he$_x$} sat down.
+  \b. \#\textbf{He$_x$} came in, and \alert{a man$^x$} sat down.
 
 Same with donkey anaphora.
 
 \ex.
-  \a. Every [\textsubscript{NP} man who had \alert{a$^x$ Russian novel}] [\textsubscript{VP} read \alert{it$_x$}]
-  \b. \#Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read \alert{a$^x$ Russian novel}]
+  \a. Every [\textsubscript{NP} man who had \alert{a Russian novel$^x$}] [\textsubscript{VP} read \textbf{it$_x$}]
+  \b. \#Every [\textsubscript{NP} man who had \textbf{it$_x$}] [\textsubscript{VP} read \alert{a Russian novel$^x$}]
 
 
 \end{frame}
@@ -52,27 +53,29 @@ Same with donkey anaphora.
 But definite antecedents seem to allow cataphora.
 
 \ex.
-  Every [\textsubscript{NP} man who had $\left\{\begin{array}{l}\text{a. \alert{a$^x$}}\\\text{b. \alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}] [\textsubscript{VP} read \alert{it$_x$}]
+  Every [\textsubscript{NP} man who had $\left\{\begin{array}{l}\text{i. \alert{a$^x$}}\\\text{d. \alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}] [\textsubscript{VP} read \textbf{it$_x$}]
 
 \ex.
-  Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read $\left\{\begin{array}{l}\text{a. \#\alert{a$^x$}}\\\text{b. \phantom{\#}\alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}]
+  Every [\textsubscript{NP} man who had \textbf{it$_x$}] [\textsubscript{VP} read $\left\{\begin{array}{l}\text{i. \#\alert{a$^x$}}\\\text{d. \phantom{\#}\alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}]
 
 
-You might say that \Last[b] does not involve binding, but \alert{accidental coreference}.
+But you might say that \Last[d] does not involve binding, but \alert{accidental coreference}.
+
+We argue that cataphoric binding is possible.
 
 
 
 \end{frame}
 
-\begin{frame}{Claims}
+\begin{frame}{Roadmap}
 
 \ex.
   Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read \alert{the$^x$ Russian novel}]
 
 {\bf Observations}:
 \begin{itemize}
-  \item Data with \alert{ellipsis} show that definite antecedents can semantically bind cataphoric pronouns.
-  \item Data with ellipsis and partially bound antecedents show that this cannot be due to crossover.
+  \item Data with \alert{ellipsis with sloppy identity} show that definite antecedents can semantically bind cataphoric pronouns.
+  \item Data with ellipsis and antecedents containing bound pronouns show that this cannot be due to \alert{crossover}.
 \end{itemize}
 
 {\bf Analysis}:\\
@@ -93,7 +96,7 @@ The existential presupposition of the definite projects and binds the pronoun.
 
 \end{frame}
 
-\begin{frame}{Sloppy Donkeys}
+\begin{frame}{Sloppy donkeys}
 
 Crucially for our purposes, dynamic binding licenses sloppy readings.
 
