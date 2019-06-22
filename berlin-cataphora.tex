@@ -4,6 +4,11 @@
 
 \input{berlin-cataphora-boilerplate}
 
+%YS reduce left and right margin to fit long examples in one line
+\setbeamersize{text margin left=20pt, text margin right=20pt}
+%YS \elide
+\newcommand{\elide}[1]{\ensuremath{\braket{\text{\textcolor{gray}{#1}}}}}
+
 \addbibresource[location=remote]{berlin-cataphora.bib}
 
 %\title{Binding \alert{back from the future}}
@@ -15,29 +20,113 @@
 %\institute{Asymmetries in language: presuppositions and beyond, ZAS Berlin}
 
 \begin{document}
+% YS: Reduce space around example labels
+\renewcommand{\Exlabelsep}{6pt}
+\renewcommand{\SubExleftmargin}{18pt}
 
 %% PDE this is broken in overleaf. Don't comment out.
 %\begin{frame}
 %  \maketitle
 %\end{frame}
 
-\begin{frame}{Overview}
-  
+
+\begin{frame}{L-to-R asymmetry with indefinites}
+
+Anaphora with indefinite antecedents shows left-to-right asymmetry.
+
+\ex.
+  \a. \alert{A$^x$ man} came in, and \alert{he$_x$} sat down.
+  \b. \#\alert{He$^x$} came in, and \alert{a$^x$ man} sat down.
+
+Same with donkey anaphora.
+
+\ex.
+  \a. Every [\textsubscript{NP} man who had \alert{a$^x$ Russian novel}] [\textsubscript{VP} read \alert{it$_x$}]
+  \b. \#Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read \alert{a$^x$ Russian novel}]
+
 
 \end{frame}
 
-\begin{frame}{Roadmap}
+\begin{frame}{Cataphora with definite antecedents}
+
+But definite antecedents seem to allow cataphora.
+
+\ex.
+  Every [\textsubscript{NP} man who had $\left\{\begin{array}{l}\text{a. \alert{a$^x$}}\\\text{b. \alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}] [\textsubscript{VP} read \alert{it$_x$}]
+
+\ex.
+  Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read $\left\{\begin{array}{l}\text{a. \#\alert{a$^x$}}\\\text{b. \phantom{\#}\alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}]
+
+
+You might say that \Last[b] does not involve binding, but \alert{accidental coreference}.
+
 
 
 \end{frame}
 
-\section{Cataphoric Sloppy Donkeys}
+\begin{frame}{Claims}
 
-\begin{frame}{Cataphora with Definite Antecedents}
+\ex.
+  Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read \alert{the$^x$ Russian novel}]
 
-  Every [\textsubscript{NP} professor who wants to read it$_x$] [\textsubscript{VP} bought a$^x$ book by Chomsky]
+{\bf Observations}:
+\begin{itemize}
+  \item Data with \alert{ellipsis} show that definite antecedents can semantically bind cataphoric pronouns.
+  \item Data with ellipsis and partially bound antecedents show that this cannot be due to crossover.
+\end{itemize}
+
+{\bf Analysis}:\\
+The existential presupposition of the definite projects and binds the pronoun.
 
 \end{frame}
+
+\section{Ellipsis, Binding, Cataphora}
+
+\begin{frame}{Sag-Williams Generalization}
+
+
+\end{frame}
+
+
+\begin{frame}{Evidence for S-W Generalization}
+
+
+\end{frame}
+
+\begin{frame}{Sloppy Donkeys}
+
+Crucially for our purposes, dynamic binding licenses sloppy readings.
+
+\ex.
+  Every farmer who owns a$^x$ donkey loves it$_x$.\\
+  And every farmer who owns a$^y$ mule does \elide{love it$^y$}, too.
+
+
+\end{frame}
+
+
+\begin{frame}{Sloppy cataphora}
+  \ex. Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
+  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
+
+Since the sloppy reading is available, the pronoun must be bound.
+
+\end{frame}
+
+\begin{frame}{Crossover}
+
+
+\end{frame}
+
+\begin{frame}{Cross binding}
+
+\ex. Every professor who wanted \textsc{Kriszta} to read it$_x$ printed out their dissertation, and
+every professor who wanted \textsc{Robyn} to \elide{read it$_y$} printed out their article.
+
+\end{frame}
+
+
+\section{Analysis}
 
 
 
