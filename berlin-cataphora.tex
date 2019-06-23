@@ -3,14 +3,17 @@
 \documentclass{beamer}
 
 \input{berlin-cataphora-boilerplate}
-
-%YS reduce left and right margin to fit long examples in one line
-\setbeamersize{text margin left=20pt, text margin right=20pt}
-%YS \elide
-\usepackage[normalem]{ulem}
-\newcommand{\elide}[1]{\ensuremath{\textcolor{red}{\braket{\text{\sout{\textcolor{gray}{#1}}}}}}}
-
 \addbibresource[location=remote]{berlin-cataphora.bib}
+
+% YS: reduce left and right margin to fit long examples in one line
+\setbeamersize{text margin left=18pt, text margin right=18pt}
+% YS: \elide
+\usepackage[normalem]{ulem}
+\newcommand{\elide}[1]{\ensuremath{\textcolor{orange}{\braket{\text{\sout{\textcolor{gray}{#1}}}}}}}
+% YS: tikz libraries (necessary for inline arrows)
+\usetikzlibrary{fit, arrows, positioning}
+
+
 
 %\title{Binding \alert{back from the future}}
 %\subtitle{Deriving Beck-effects via cyclic scope and local exhaustification}
@@ -21,9 +24,17 @@
 %\institute{Asymmetries in language: presuppositions and beyond, ZAS Berlin}
 
 \begin{document}
+
 % YS: Reduce space around example labels
 \renewcommand{\Exlabelsep}{6pt}
 \renewcommand{\SubExleftmargin}{18pt}
+
+% YS: tikz settings for inline arrows
+\tikzstyle{every picture}+=[remember picture]
+\tikzstyle{every node} = [inner sep=2, outer sep=0, anchor=base, minimum height=16pt]
+\tikzstyle{every path} = [->, thick]
+\tikzstyle{na} = [baseline=0]
+
 
 %% PDE this is broken in overleaf. Don't comment out.
 %\begin{frame}
@@ -31,20 +42,29 @@
 %\end{frame}
 
 
-\begin{frame}{L-to-R asymmetry with indefinites}
+
+
+\begin{frame}{L-to-R asymmetry with indefinite antecedents}
 
 Anaphora with indefinite antecedents shows left-to-right asymmetry.
 
 \ex.
-  \a. \alert{A man$^x$} came in, and \textbf{he$_x$} sat down.
-  \b. \#\textbf{He$_x$} came in, and \alert{a man$^x$} sat down.
+  \a. \tikz[na]{\node[fill=green!10](man1){A man};} came in, and \tikz[na]{\node[](he1){\textcolor{green}{\bf he}};} sat down.
+  \b. \#\tikz[na]{\node[](he2){\textcolor{red}{\bf He}};} came in, and \tikz[na]{\node[fill=red!10](man2){a man};} sat down.
 
 Same with donkey anaphora.
 
 \ex.
-  \a. Every [\textsubscript{NP} man who had \alert{a Russian novel$^x$}] [\textsubscript{VP} read \textbf{it$_x$}]
-  \b. \#Every [\textsubscript{NP} man who had \textbf{it$_x$}] [\textsubscript{VP} read \alert{a Russian novel$^x$}]
+  \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel1){a novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it1){\textcolor{green}{\bf it}};}]
+  \b. \#Every [\textsubscript{NP} man who had \tikz[na]{\node[](it2){\textcolor{red}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=red!10](novel2){a novel};}]
 
+
+\begin{tikzpicture}[overlay]
+  \draw[green] (man1.north) --++(0,.30) -| (he1.north);
+  \draw[red] (man2.south) --++(0,-.30) -| (he2.south);
+  \draw[green] (novel1.north) --++(0,.30) -| (it1.north);
+  \draw[red] (novel2.south) --++(0,-.30) -| (it2.south);
+\end{tikzpicture}
 
 \end{frame}
 
@@ -53,24 +73,29 @@ Same with donkey anaphora.
 But definite antecedents seem to allow cataphora.
 
 \ex.
-  Every [\textsubscript{NP} man who had $\left\{\begin{array}{l}\text{i. \alert{a$^x$}}\\\text{d. \alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}] [\textsubscript{VP} read \textbf{it$_x$}]
+  \a. \tikz[na]{\node[fill=green!10](man3){The man};} came in, and \tikz[na]{\node[](he3){\textcolor{green}{\bf he}};} sat down.
+  \b. \tikz[na]{\node[](he4){\textcolor{green}{\bf He}};} came in, and \tikz[na]{\node[fill=green!10](man4){the man};} sat down.
+
+\medskip
 
 \ex.
-  Every [\textsubscript{NP} man who had \textbf{it$_x$}] [\textsubscript{VP} read $\left\{\begin{array}{l}\text{i. \#\alert{a$^x$}}\\\text{d. \phantom{\#}\alert{the$^x$}}\end{array}\right\}$ \alert{Russian novel}]
+  \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel3){the novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it3){\textcolor{green}{\bf it}};}]
+  \b. Every [\textsubscript{NP} man who had \tikz[na]{\node[](it4){\textcolor{green}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=green!10](novel4){the novel};}]
 
+You might say that \Last[b] does not involve binding, but \alert{accidental coreference}.
 
-But you might say that \Last[d] does not involve binding, but \alert{accidental coreference}.
+We argue that cataphoric binding is actually possible.
 
-We argue that cataphoric binding is possible.
-
-
+\begin{tikzpicture}[overlay]
+  \draw[green] (man3.north) --++(0,.30) -| (he3.north);
+  \draw[green] (man4.south) --++(0,-.30) -| (he4.south);
+  \draw[green] (novel3.north) --++(0,.30) -| (it3.north);
+  \draw[green] (novel4.south) --++(0,-.30) -| (it4.south);
+\end{tikzpicture}
 
 \end{frame}
 
 \begin{frame}{Roadmap}
-
-\ex.
-  Every [\textsubscript{NP} man who had \alert{it$_x$}] [\textsubscript{VP} read \alert{the$^x$ Russian novel}]
 
 {\bf Observations}:
 \begin{itemize}
@@ -78,20 +103,34 @@ We argue that cataphoric binding is possible.
   \item Data with ellipsis and antecedents containing bound pronouns show that this cannot be due to \alert{crossover}.
 \end{itemize}
 
-{\bf Analysis}:\\
-The existential presupposition of the definite projects and binds the pronoun.
+{\bf Analysis}:
+\begin{itemize}
+  \item The existential presupposition of the definite projects and binds the pronoun.
+\end{itemize}
 
 \end{frame}
 
 \section{Ellipsis, Binding, Cataphora}
 
-\begin{frame}{Sag-Williams Generalization}
+\begin{frame}{Strict vs.\ sloppy identity}
 
+Elided pronouns give rise to two readings {\small (Sag 1976, Williams 1977)}.
+
+\ex. \tikz[na]{\node[fill=blue!10]{Ivan};} met \tikz[na]{\node[]{\textcolor{blue!80}{\bf his}};} student. \tikz[na]{\node[fill=green!10]{Jorge};} didn't $\begin{cases}\text{\elide{meet \tikz[na]{\node[]{\textcolor{blue!80}{\bf his}};} student}.}&\text{\textcolor{blue}{\sc strict}}\\\text{\elide{meet \tikz[na]{\node[]{\textcolor{green!80}{\bf his}};} student}.}&\text{\textcolor{green}{\sc sloppy}}\end{cases}$
 
 \end{frame}
 
 
-\begin{frame}{Evidence for S-W Generalization}
+\begin{frame}{The Sag-Williams Generalization}
+
+\begin{exampleblock}{The Sag-Williams Generalization}
+Sloppy identity requires binding in the antecedent clause.
+\end{exampleblock}
+
+Evidence from \alert{rebinding}:
+
+\ex.
+
 
 
 \end{frame}
