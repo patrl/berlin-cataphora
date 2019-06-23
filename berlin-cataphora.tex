@@ -5,11 +5,12 @@
 \input{berlin-cataphora-boilerplate}
 \addbibresource[location=remote]{berlin-cataphora.bib}
 
-% YS: reduce left and right margin to fit long examples in one line
+% YS: orangeuce left and right margin to fit long examples in one line
 \setbeamersize{text margin left=18pt, text margin right=18pt}
 % YS: \elide
 \usepackage[normalem]{ulem}
-\newcommand{\elide}[1]{\ensuremath{\textcolor{orange}{\braket{\text{\sout{\textcolor{gray}{#1}}}}}}}
+\renewcommand{\ULthickness}{2.0pt}
+\newcommand{\elide}[1]{\textcolor{red!60}{$\langle$\sout{\textcolor{black}{#1}}$\rangle$}}
 % YS: tikz libraries (necessary for inline arrows)
 \usetikzlibrary{fit, arrows, positioning}
 
@@ -25,7 +26,7 @@
 
 \begin{document}
 
-% YS: Reduce space around example labels
+% YS: orangeuce space around example labels
 \renewcommand{\Exlabelsep}{6pt}
 \renewcommand{\SubExleftmargin}{18pt}
 
@@ -50,20 +51,20 @@ Anaphora with indefinite antecedents shows left-to-right asymmetry.
 
 \ex.
   \a. \tikz[na]{\node[fill=green!10](man1){A man};} came in, and \tikz[na]{\node[](he1){\textcolor{green}{\bf he}};} sat down.
-  \b. \#\tikz[na]{\node[](he2){\textcolor{red}{\bf He}};} came in, and \tikz[na]{\node[fill=red!10](man2){a man};} sat down.
+  \b. \#\tikz[na]{\node[](he2){\textcolor{orange}{\bf He}};} came in, and \tikz[na]{\node[fill=orange!10](man2){a man};} sat down.
 
 Same with donkey anaphora.
 
 \ex.
   \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel1){a novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it1){\textcolor{green}{\bf it}};}]
-  \b. \#Every [\textsubscript{NP} man who had \tikz[na]{\node[](it2){\textcolor{red}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=red!10](novel2){a novel};}]
+  \b. \#Every [\textsubscript{NP} man who had \tikz[na]{\node[](it2){\textcolor{orange}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=orange!10](novel2){a novel};}]
 
 
 \begin{tikzpicture}[overlay]
-  \draw[green] (man1.north) --++(0,.30) -| (he1.north);
-  \draw[red] (man2.south) --++(0,-.30) -| (he2.south);
+  \draw[green] (man1.north)  -- ++(0,.30) -| (he1.north) ;
+  \draw[orange] (man2.south) --++(0,-.30) -| (he2.south);
   \draw[green] (novel1.north) --++(0,.30) -| (it1.north);
-  \draw[red] (novel2.south) --++(0,-.30) -| (it2.south);
+  \draw[orange] (novel2.south) --++(0,-.30) -| (it2.south);
 \end{tikzpicture}
 
 \end{frame}
@@ -137,21 +138,33 @@ Evidence from \alert{rebinding}:
 
 \begin{frame}{Sloppy donkeys}
 
-Crucially for our purposes, dynamic binding licenses sloppy readings.
-
+Donkey anaphora licenses sloppy readings.
 \ex.
-  Every farmer who owns a$^x$ donkey loves it$_x$.\\
-  And every farmer who owns a$^y$ mule does \elide{love it$^y$}, too.
+  Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel5){a Russian novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it5){\textcolor{green}{\bf it}};}], and\\
+  every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel6){a German novel};}] [\textsubscript{VP} did \elide{read \tikz[na]{\node[](it6){\textcolor{green}{\bf it}};}}], too.\\
 
+
+\begin{tikzpicture}[overlay]
+  \draw[green] (novel5.north) -- ++(0,.30) -| (it5.north);
+  \draw[green] (novel6.south) -- ++(0,-.30) -| (it6.south);
+\end{tikzpicture}
 
 \end{frame}
 
 
 \begin{frame}{Sloppy cataphora}
-  \ex. Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
-  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
+  \ex.
+%  Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
+%  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
+  Every {\sc linguist} who had \tikz[na]{\node[](it7){\textcolor{green}{\bf it}};} read \tikz[na]{\node[fill=green!10](chomsky){Chomsky's book};}, and\\
+  every {\sc philosopher} who did \elide{read \tikz[na]{\node[](it8){\textcolor{green}{\bf it}};}} read \tikz[na]{\node[fill=green!10](yablo){Yablo's book};}.
 
 Since the sloppy reading is available, the pronoun must be bound.
+
+\begin{tikzpicture}[overlay]
+  \draw[green] (chomsky.north) -- ++(0,.30) -| (it7.north);
+  \draw[green] (yablo.south) -- ++(0,-.30) -| (it8.south);
+\end{tikzpicture}
 
 \end{frame}
 
@@ -162,8 +175,8 @@ Since the sloppy reading is available, the pronoun must be bound.
 
 \begin{frame}{Cross binding}
 
-\ex. Every professor who wanted \textsc{Kriszta} to read it$_x$ printed out their dissertation, and
-every professor who wanted \textsc{Robyn} to \elide{read it$_y$} printed out their article.
+\ex. Everyone who wanted \textsc{Kriszta} to read it$_x$ printed out their dissertation, and\\
+everyone who wanted \textsc{Robyn} to \elide{read it$_y$} printed out their article.
 
 \end{frame}
 
