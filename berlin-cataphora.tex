@@ -49,13 +49,13 @@
 
 Anaphora with indefinite antecedents shows left-to-right asymmetry.
 
-\ex.
+\ex. {\bf Cross-sentential anaphora}\bigskip
   \a. \tikz[na]{\node[fill=green!10](man1){A man};} came in, and \tikz[na]{\node[](he1){\textcolor{green}{\bf he}};} sat down.
   \b. \#\tikz[na]{\node[](he2){\textcolor{orange}{\bf He}};} came in, and \tikz[na]{\node[fill=orange!10](man2){a man};} sat down.
 
-Same with donkey anaphora.
+\bigskip
 
-\ex.
+\ex. {\bf Donkey anaphora}
   \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel1){a novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it1){\textcolor{green}{\bf it}};}]
   \b. \#Every [\textsubscript{NP} man who had \tikz[na]{\node[](it2){\textcolor{orange}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=orange!10](novel2){a novel};}]
 
@@ -71,7 +71,7 @@ Same with donkey anaphora.
 
 \begin{frame}{Cataphora with definite antecedents}
 
-But definite antecedents seem to allow cataphora.
+Definite antecedents seem to allow \alert{cataphora}.
 
 \ex.
   \a. \tikz[na]{\node[fill=green!10](man3){The man};} came in, and \tikz[na]{\node[](he3){\textcolor{green}{\bf he}};} sat down.
@@ -83,7 +83,7 @@ But definite antecedents seem to allow cataphora.
   \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel3){the novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it3){\textcolor{green}{\bf it}};}]
   \b. Every [\textsubscript{NP} man who had \tikz[na]{\node[](it4){\textcolor{green}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=green!10](novel4){the novel};}]
 
-You might say that \Last[b] does not involve binding, but \alert{accidental coreference}.
+You might say that \Last[b] does not involve {\bf binding}, but {\bf accidental coreference}.
 
 We argue that cataphoric binding is actually possible.
 
@@ -183,6 +183,27 @@ everyone who wanted \textsc{Robyn} to \elide{read it$_y$} printed out their arti
 
 \section{Analysis}
 
+
+\begin{frame}{Binding with presupposition}
+
+We claim that cataphora with definite antecedents involve binding with an accommodated existential presupposition.
+
+We adopt the {\bf Sauerland notation} for presuppositions:
+$$\displaystyle\frac{\text{Presupposition}}{\text{Assertion}}$$
+
+\end{frame}
+
+\begin{frame}{Binding with presupposition}
+  \ex. The$^x_y$ new book is sold out.
+  $$\displaystyle\frac{\text{There's a unique book $x$, and $x=y$}}{\text{$y$ is sold out}}$$
+
+\end{frame}
+
+\begin{frame}{Accommodation}
+
+  \ex. $\mathbb{A}\left(\frac{\phi}{\psi}) \coloneq \frac{\top}{\phi\land\psi}$
+
+\end{frame}
 
 
 \begin{frame}[allowframebreaks]{References}
