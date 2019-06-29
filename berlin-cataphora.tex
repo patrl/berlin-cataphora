@@ -50,9 +50,9 @@ Anaphora with indefinite antecedents shows left-to-right asymmetry.
 
 \begin{tikzpicture}[overlay]
   \draw[green] (man1.north)  -- ++(0,.30) -| (he1.north);
-  \draw[orange] (man2.south) --++(0,-.30) -| (he2.south);
+  \draw[orange, dashed] (man2.south) --++(0,-.30) -| (he2.south);
   \draw[green] (novel1.north) --++(0,.30) -| (it1.north);
-  \draw[orange] (novel2.south) --++(0,-.30) -| (it2.south);
+  \draw[orange, dashed] (novel2.south) --++(0,-.30) -| (it2.south);
 \end{tikzpicture}
 
 \end{frame}
@@ -105,21 +105,26 @@ We argue that cataphoric binding is actually possible.
 
 Elided pronouns give rise to two readings {\small (Sag 1976, Williams 1977)}.
 
-\ex. \tikz[na]{\node[fill=blue!10]{Ivan};} met \tikz[na]{\node[]{\textcolor{blue!80}{\bf his}};} student. \tikz[na]{\node[fill=green!10]{Jorge};} didn't $\begin{cases}\text{\elide{meet \tikz[na]{\node[]{\textcolor{blue!80}{\bf his}};} student}.}&\text{\textcolor{blue}{\sc strict}}\\\text{\elide{meet \tikz[na]{\node[]{\textcolor{green!80}{\bf his}};} student}.}&\text{\textcolor{green}{\sc sloppy}}\end{cases}$
+\ex. \tikz[na]{\node[fill=blue!10](ivan1){Ivan};} met \tikz[na]{\node[](his1){\textcolor{blue!80}{\bf his}};} student. \tikz[na]{\node[fill=green!10]{Jorge};} didn't $\begin{cases}\text{\elide{meet \tikz[na]{\node[](his2){\textcolor{blue!80}{\bf his}};} student}.}&\text{\textcolor{blue}{\sc strict}}\\\text{\elide{meet \tikz[na]{\node[](his3){\textcolor{green!80}{\bf his}};} student}.}&\text{\textcolor{green}{\sc sloppy}}\end{cases}$
 
 \end{frame}
 
 
 \begin{frame}{The Sag-Williams Generalization}
 
-\begin{exampleblock}{The Sag-Williams Generalization}
-Sloppy identity requires binding in the antecedent clause.
-\end{exampleblock}
+\textcolor{green}{\bf The Sag-Williams Generalization:}\\
+Sloppy identity requires parallel binding in the antecedent clause.
 
-Evidence from \alert{rebinding}:
+Evidence:
 
 \ex.
+*\tikz[na]{\node[fill=blue!10](ivan2){Ivan};} said [that Tanya met \tikz[na]{\node[](his4){\textcolor{blue!80}{\bf his}};} student],\\
+and she said [that \tikz[na]{\node[fill=green!10](jorge2){Jorge};} did \elide{met \tikz[na]{\node[](his5){\textcolor{green!80}{\bf his}};} student} too].
+\hfill \alert{Rebinding}
 
+
+\ex.*\tikz[na]{\node[fill=blue!10](ivan3){Ivan};} met \tikz[na]{\node[fill=blue!10](ivan4){Ivan's};} student, and\\
+\tikz[na]{\node[fill=green!10](jorge3){Jorge};} did \elide{meet \tikz[na]{\node[fill=green, fill opacity=0.1, text opacity=1]{Jorge's};} student} too. \hfill \alert{Non-pronominal expression}
 
 
 \end{frame}
@@ -141,7 +146,7 @@ Donkey anaphora licenses sloppy readings.
 
 
 \begin{frame}{Sloppy cataphora}
-  \ex.
+  \ex.\label{sloppycataphora}
 %  Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
 %  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
   Every {\sc linguist} who bought \tikz[na]{\node[](it7){\textcolor{green}{\bf it}};} read \tikz[na]{\node[fill=green!10](chomsky){Chomsky's book};}, and\\
@@ -168,10 +173,50 @@ One might wonder if the definite is taking scope over the pronoun in each senten
   \draw[green] (yablo2.south) -- ++(0,-.30) -| (it10.south);
 \end{tikzpicture}
 
+\pause
+
 But the subject quantifier can bind into the definite.
 
-\ex. Everyone who wanted \textsc{Kriszta} to read it printed out their dissertation, and\\
-everyone who wanted \textsc{Robyn} to \elide{read it} printed out their essay.
+\ex. {\small
+\tikz[na]{\node[fill=blue!10](everyoneme){Everyone who wanted \textsc{ME} to read \phantom{\bf it}};} \hspace{-1.5em} \tikz[na]{\node[](it11){\textcolor{green}{\bf it}};} printed out \tikz[na]{\node[](their1){};}\hspace{-1ex} \tikz[na]{\node[fill=green!10](dissertation){\textcolor{blue}{\bf their} dissertation};}, and\\[1.5\baselineskip]
+\tikz[na]{\node[fill=blue!10](everyoneyou){everyone who wanted \textsc{YOU} to \elide{read \phantom{\bf it}}};} \hspace{-1.9em} \tikz[na]{\node[](it12){\textcolor{green}{\bf it}};} \hspace{.25em} printed out \tikz[na]{\node[](their2){};}\hspace{-1ex} \tikz[na]{\node[fill=green!10](essay){\textcolor{blue}{\bf their} essay};}.
+}
+
+\begin{tikzpicture}[overlay]
+  \draw[blue] (everyoneme.north) -- ++(0,.30) -| ([xshift=1.2em]their1.north);
+  \draw[green] (dissertation.south) -- ++(0,-.30) -| (it11.south);
+  \draw[blue] (everyoneyou.north) -- ++(0,.30) -| ([xshift=1.2em]their2.north);
+  \draw[green] (essay.south) -- ++(0,-.30) -| (it12.south);
+\end{tikzpicture}
+
+\end{frame}
+
+
+\begin{frame}{Data Summary}
+
+  \ex.[\ref{sloppycataphora}]
+%  Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
+%  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
+  Every {\sc linguist} who bought \tikz[na]{\node[](it72){\textcolor{green}{\bf it}};} read \tikz[na]{\node[fill=green!10](chomsky12){Chomsky's book};}, and\\
+  every {\sc philosopher} who did \elide{bought \tikz[na]{\node[](it82){\textcolor{green}{\bf it}};}} read \tikz[na]{\node[fill=green!10](yablo12){Yablo's book};}.
+
+\begin{tikzpicture}[overlay]
+  \draw[green] (chomsky12.north) -- ++(0,.30) -| (it72.north);
+  \draw[green] (yablo12.south) -- ++(0,-.30) -| (it82.south);
+\end{tikzpicture}
+
+
+Ellipsis with sloppy cataphora shows that cataphoric binding is possible with a definite antecedent.
+
+An indefinite antecedent doesn't allow binding:
+\ex.
+  Every {\sc linguist} who bought \tikz[na]{\node[](it73){\textcolor{orange}{\bf it}};} read \tikz[na]{\node[fill=orange!10](russian2){a Russian book};}, and\\
+  every {\sc philosopher} who did \elide{bought \tikz[na]{\node[](it83){\textcolor{orange}{\bf it}};}} read \tikz[na]{\node[fill=orange!10](german2){a German novel};}.
+
+\begin{tikzpicture}[overlay]
+  \draw[orange, dashed] (russian2.north) -- ++(0,.30) -|  (it73.north);
+  \draw[orange, dashed] (german2.south) -- ++(0,-.30) -| (it83.south);
+\end{tikzpicture}
 
 
 \end{frame}
