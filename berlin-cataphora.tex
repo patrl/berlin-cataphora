@@ -43,8 +43,6 @@
 %\end{frame}
 
 
-
-
 \begin{frame}{L-to-R asymmetry with indefinite antecedents}
 
 Anaphora with indefinite antecedents shows left-to-right asymmetry.
@@ -61,7 +59,7 @@ Anaphora with indefinite antecedents shows left-to-right asymmetry.
 
 
 \begin{tikzpicture}[overlay]
-  \draw[green] (man1.north)  -- ++(0,.30) -| (he1.north) ;
+  \draw[green] (man1.north)  -- ++(0,.30) -| (he1.north);
   \draw[orange] (man2.south) --++(0,-.30) -| (he2.south);
   \draw[green] (novel1.north) --++(0,.30) -| (it1.north);
   \draw[orange] (novel2.south) --++(0,-.30) -| (it2.south);
@@ -83,7 +81,7 @@ Definite antecedents seem to allow \alert{cataphora}.
   \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel3){the novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it3){\textcolor{green}{\bf it}};}]
   \b. Every [\textsubscript{NP} man who had \tikz[na]{\node[](it4){\textcolor{green}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=green!10](novel4){the novel};}]
 
-You might say that \Last[b] does not involve {\bf binding}, but {\bf accidental coreference}.
+One might say that \Last[b] does not involve {\bf binding}, but {\bf accidental coreference}.
 
 We argue that cataphoric binding is actually possible.
 
@@ -156,10 +154,10 @@ Donkey anaphora licenses sloppy readings.
   \ex.
 %  Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
 %  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
-  Every {\sc linguist} who had \tikz[na]{\node[](it7){\textcolor{green}{\bf it}};} read \tikz[na]{\node[fill=green!10](chomsky){Chomsky's book};}, and\\
-  every {\sc philosopher} who did \elide{read \tikz[na]{\node[](it8){\textcolor{green}{\bf it}};}} read \tikz[na]{\node[fill=green!10](yablo){Yablo's book};}.
+  Every {\sc linguist} who bought \tikz[na]{\node[](it7){\textcolor{green}{\bf it}};} read \tikz[na]{\node[fill=green!10](chomsky){Chomsky's book};}, and\\
+  every {\sc philosopher} who did \elide{bought \tikz[na]{\node[](it8){\textcolor{green}{\bf it}};}} read \tikz[na]{\node[fill=green!10](yablo){Yablo's book};}.
 
-Since the sloppy reading is available, the pronoun must be bound.
+Since the sloppy reading is available, the pronoun can be bound.
 
 \begin{tikzpicture}[overlay]
   \draw[green] (chomsky.north) -- ++(0,.30) -| (it7.north);
@@ -168,15 +166,23 @@ Since the sloppy reading is available, the pronoun must be bound.
 
 \end{frame}
 
-\begin{frame}{Crossover}
+\begin{frame}{Crossover and Binding}
 
+One might wonder if the definite is taking scope over the pronoun in each sentence:
+\ex.
+  \tikz[na]{\node[fill=green!10](chomsky2){Chomsky's book};} Every {\sc linguist} who bought \tikz[na]{\node[](it9){\textcolor{green}{\bf it}};} read $t$, and\\
+  \tikz[na]{\node[fill=green!10](yablo2){Yablo's book};} every {\sc philosopher} who did \elide{bought \tikz[na]{\node[](it10){\textcolor{green}{\bf it}};}} read $t$.
 
-\end{frame}
+\begin{tikzpicture}[overlay]
+  \draw[green] (chomsky2.north) -- ++(0,.30) -| (it9.north);
+  \draw[green] (yablo2.south) -- ++(0,-.30) -| (it10.south);
+\end{tikzpicture}
 
-\begin{frame}{Cross binding}
+But the subject quantifier can bind into the definite.
 
-\ex. Everyone who wanted \textsc{Kriszta} to read it$_x$ printed out their dissertation, and\\
-everyone who wanted \textsc{Robyn} to \elide{read it$_y$} printed out their article.
+\ex. Everyone who wanted \textsc{Kriszta} to read it printed out their dissertation, and\\
+everyone who wanted \textsc{Robyn} to \elide{read it} printed out their essay.
+
 
 \end{frame}
 
@@ -201,16 +207,16 @@ $$\displaystyle\frac{\text{Presupposition}}{\text{Assertion}}$$
 
 \begin{frame}{Accommodation}
 
-  \ex. $\mathbb{A}\left(\frac{\phi}{\psi}) \coloneq \frac{\top}{\phi\land\psi}$
+  \ex. \[\mathbb{A}\left(\frac{\phi}{\psi}\right) \coloneq \displaystyle\frac{\top}{\phi\land\psi}\]
 
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{References}
-
-  \printbibliography[heading=none]
-
-\end{frame}
+%\begin{frame}[allowframebreaks]{References}
+%
+%  \printbibliography[heading=none]
+%
+%\end{frame}
 
 \end{document}
 
