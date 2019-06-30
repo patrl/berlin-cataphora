@@ -2,6 +2,11 @@
 
 \documentclass{beamer}
 
+\title{Binding back \alert{to the future}}
+\author{Patrick~D. Elliott and Yasu Sudo}
+\date{July 2, 2019}
+\institute{Asymmetries in Language: Presuppositions and beyond -- Berlin}
+
 \input{berlin-cataphora-boilerplate}
 \addbibresource[location=remote]{berlin-cataphora.bib}
 
@@ -26,12 +31,9 @@
 \tikzstyle{every path} = [->, thick]
 \tikzstyle{na} = [baseline=0]
 
-
-%% PDE this is broken in overleaf. Don't comment out.
-%\begin{frame}
-%  \maketitle
-%\end{frame}
-
+\begin{frame}
+ \maketitle
+\end{frame}
 
 \begin{frame}{L-to-R asymmetry with indefinite antecedents}
 
@@ -103,7 +105,7 @@ We argue that cataphoric binding is actually possible.
 
 \begin{frame}{Strict vs.\ sloppy identity}
 
-Elided pronouns give rise to two readings {\small (Sag 1976, Williams 1977)}.
+Elided pronouns give rise to two readings (\citealt{sag1976,williams_discourse_1977}).
 
 \ex. \tikz[na]{\node[fill=blue!10](ivan1){Ivan};} met \tikz[na]{\node[](his1){\textcolor{blue!80}{\bf his}};} student. \tikz[na]{\node[fill=green!10]{Jorge};} didn't $\begin{cases}\text{\elide{meet \tikz[na]{\node[](his2){\textcolor{blue!80}{\bf his}};} student}.}&\text{\textcolor{blue}{\sc strict}}\\\text{\elide{meet \tikz[na]{\node[](his3){\textcolor{green!80}{\bf his}};} student}.}&\text{\textcolor{green}{\sc sloppy}}\end{cases}$
 
@@ -141,6 +143,8 @@ Donkey anaphora licenses sloppy readings.
   \draw[green] (novel5.north) -- ++(0,.30) -| (it5.north);
   \draw[green] (novel6.south) -- ++(0,-.30) -| (it6.south);
 \end{tikzpicture}
+
+See e.g., \citet{charlow_cross-categorial_2012}.
 
 \end{frame}
 
@@ -226,38 +230,29 @@ An indefinite antecedent doesn't allow binding:
 
 \begin{frame}{Our idea}
 
-  \begin{itemize}
+  \metroset{block=fill}
+  \begin{block}{The problem}
+    How do we account for the ability of definites to bind to their left without dispensing with the core results of dynamic semantics in the domain of anaphora with indefinite antecedents?
+  \end{block}
 
-      \item How do we account for the ability of definites to bind to their left without dispensing with the core results of dynamic semantics in the domain of anaphora with indefinite antecedents.
+  \begin{block}{Our solution}
+Unlike orthodox dynamic binding of a definite by an indefinite, \textit{cataphora} involves binding by a \textit{presupposition}.
 
-      \item Our claim: unlike orthodox dynamic binding of a definite by an indefinite, \textit{cataphora} involves binding by a \textit{presupposition}.
-
-      \item We can't make sense of this in orthodox dynamic theories, so we provide an extension of DPL in which we can cash this out.
-
-  \end{itemize}
+We can't make sense of this in orthodox dynamic theories, so we provide an extension of DPL in which we can cash this out.
+  \end{block}
 
 \end{frame}
 
-\begin{frame}{Binding with presupposition}
-
-We claim that cataphora with definite antecedents involve binding with an accommodated existential presupposition.
+\begin{frame}[allowframebreaks]{Binding by presupposition}
 
 We adopt the {\bf Sauerland notation} for presuppositions:
 $$\displaystyle\frac{\text{Presupposition}}{\text{Assertion}}$$
 
-\end{frame}
+Crucially, we take both the at-issue meaning and the presupposition to be dynamic statements.
 
-\begin{frame}
+We'll write dynamic statements using FoL syntax -- our formalisation is in Dynamic Predicate Logic (DPL) (\citealt{groenendijk_dynamic_1991}), which has the same syntax as FoL. See \citet{elliottSudoLenls,elliottSudoCat} for the details.
 
-  \begin{itemize}
-
-      \item In \(\displaystyle\frac{\phi}{\psi}\), \(\phi\) represents the presupposition, and \(\psi\) represents the at-issue meaning.
-
-      \item Crucially, we take both the at-issue meaning and the presupposition are dynamic statements.
-
-      \item See \citet{elliottSudoLenls,elliottSudoCat} for a formalisation of the analysis in terms of Dynamic Predicate Logic (\citealt{groenendijk_dynamic_1991}). Here we present the informal idea.
-
-  \end{itemize}
+Bear in the mind that in DPL the scope of existentials extends across conjunction.
 
 \end{frame}
 
@@ -274,17 +269,19 @@ $$\displaystyle\frac{\text{Presupposition}}{\text{Assertion}}$$
   \end{description}
 
   \ex. The$^a_x$ new book is sold out.
-  $$\displaystyle\frac{\exists ! a[\ml{newBook}\,x] \wedge x = a}{\ml{soldOut}\,x}$$
+  $$\displaystyle\frac{\exists ! a[\ml{newBook}\,a] \wedge x = a}{\ml{soldOut}\,x}$$
+
+  N.b. since the presupposition is a DPL statement, the variable \(a\) in the equality statement is bound by the existential.
 
 \end{frame}
 
 \begin{frame}{Extension to names and pronominals}
 
-  Similarly, we assume that proper names and pronominals also have existential presuppositions.
+  Similarly, we assume that proper names and pronominals can also have existential presuppositions.
 
   \ex. $\text{Paul$^{a}_{x}$ sat down} \rightsquigarrow \displaystyle\frac{\exists ! a[a = x] \wedge x = Paul}{\ml{satDown}\,x}$
 
-  \ex. $\text{He$^{a}_{x}$ sat down} = \displaystyle\frac{\exists ! a[x = a]}{\ml{satDown}\,x}$
+  \ex. $\text{He$^{a}_{x}$ sat down} = \displaystyle\frac{\exists ! a[a = x]}{\ml{satDown}\,x}$
 
 \end{frame}
 
