@@ -224,6 +224,19 @@ An indefinite antecedent doesn't allow binding:
 
 \section{Analysis}
 
+\begin{frame}{Our idea}
+
+  \begin{itemize}
+
+      \item How do we account for the ability of definites to bind to their left without dispensing with the core results of dynamic semantics in the domain of anaphora with indefinite antecedents.
+
+      \item Our claim: unlike orthodox dynamic binding of a definite by an indefinite, \textit{cataphora} involves binding by a \textit{presupposition}.
+
+      \item We can't make sense of this in orthodox dynamic theories, so we provide an extension of DPL in which we can cash this out.
+
+  \end{itemize}
+
+\end{frame}
 
 \begin{frame}{Binding with presupposition}
 
@@ -234,21 +247,169 @@ $$\displaystyle\frac{\text{Presupposition}}{\text{Assertion}}$$
 
 \end{frame}
 
-\begin{frame}{Binding with presupposition}
-  \ex. The$^x_y$ new book is sold out.
-  $$\displaystyle\frac{\text{There's a unique book $x$, and $x=y$}}{\text{$y$ is sold out}}$$
+\begin{frame}
+
+  \begin{itemize}
+
+      \item In \(\displaystyle\frac{\phi}{\psi}\), \(\phi\) represents the presupposition, and \(\psi\) represents the at-issue meaning.
+
+      \item Crucially, we take both the at-issue meaning and the presupposition are dynamic statements.
+
+      \item See \citet{elliottSudoLenls,elliottSudoCat} for a formalisation of the analysis in terms of Dynamic Predicate Logic (\citealt{groenendijk_dynamic_1991}). Here we present the informal idea.
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Definites}
+
+  \begin{description}[orthodox theories]
+
+    \item[Orthodox theories]
+      Definites denote restricted variables.
+
+      \item[Our theory]
+      Definites contribute a variable to the assertion, and an existential statement to the \textit{presupposition}.
+
+  \end{description}
+
+  \ex. The$^a_x$ new book is sold out.
+  $$\displaystyle\frac{\exists ! a[\ml{newBook}\,x] \wedge x = a}{\ml{soldOut}\,x}$$
+
+\end{frame}
+
+\begin{frame}{Extension to names and pronominals}
+
+  Similarly, we assume that proper names and pronominals also have existential presuppositions.
+
+  \ex. $\text{Paul$^{a}_{x}$ sat down} \rightsquigarrow \displaystyle\frac{\exists ! a[a = x] \wedge x = Paul}{\ml{satDown}\,x}$
+
+  \ex. $\text{He$^{a}_{x}$ sat down} = \displaystyle\frac{\exists ! a[x = a]}{\ml{satDown}\,x}$
 
 \end{frame}
 
 \begin{frame}{Accommodation}
 
-  \ex. \[\mathbb{A}\left(\frac{\phi}{\psi}\right) \coloneq \displaystyle\frac{\top}{\phi\land\psi}\]
+  We define an accommodation operator \(\mathbb{A}\) that takes a presuppositional statement (i.e., a pair consisting of a presupposition and an assertion), and returns a presuppositionless one by dynamically sequencing the presupposition and the assertion.
+
+  \[\mathbb{A}\left(\frac{\phi}{\psi}\right) \coloneq \displaystyle\frac{\top}{\phi \wedge \psi}\]
+
+  In the following, we simply omit the presupposition whenever it is trivial, so for the above we just write \(\phi \wedge \psi\).
 
 \end{frame}
 
+\begin{frame}[allowframebreaks]{Accounting for cataphora}
+
+  We now have everything we need to account for cross-sentential cataphora.
+
+  \ex. He\(_{a}\) sat down. The new arrival\(^{a}\) yawned.
+
+ What happens to the presuppositions of the individual conjuncts? We assume that they \textit{project}, i.e., the presupposition of the first conjunct is sequenced with the presupposition of the second.
+
+ \ex. \(\displaystyle\frac{\phi}{\alpha}\text{ and }\frac{\psi}{\beta} \coloneq \frac{\phi \wedge \psi}{\alpha \wedge \beta}\)
+
+ \framebreak
+
+ Post-accommodation, the existential presupposition introduced by \textit{the new arrival} binds the variable introduced by \textit{he} in the assertive dimension.
+
+ \exi.
+ \a. He\(_{a}\) sat down. $\rightsquigarrow \ml{satDown}\,a$
+ \b. $\text{The new arrival\(^{a}_{x}\) yawned.}\rightsquigarrow\displaystyle\frac{\exists !a[\ml{newArrival}\,a] \wedge x = a}{\ml{yawned}\,x}$
+
+\ex. $\begin{aligned}[t]
+  &\text{He\(_{a}\) sat down. The new arrival\(^{a}_{x}\) yawned.}\\ &\rightsquigarrow\mathbb{A}\left(\displaystyle\frac{\exists ! a[\ml{newArrival}\,a] \wedge x = a}{\ml{satDown}\,a \wedge \ml{yawned}\,a}\right)\\
+&\rightsquigarrow \exists ! a[\ml{newArrival}\,a] \wedge x =a \wedge \ml{satDown}\,a \wedge \ml{yawned}\,x\end{aligned}$
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Cataphora with indefinite antecedents}
+
+  We predict -- correctly in the majority of cases -- that cataphora with indefinite antecedents is disallowed.
+
+  \exi.
+  \a. If a farmer\(^{x}\) owns a donkey\(^{y}\) he\(_{x}\) beats it\(_{y}\).
+  \b. *If he\(_{x}\) owns it\(_{y}\), a farmer\(^{x}\) beats a donkey\(^{y}\).
+
+  \framebreak
+
+  \citet[p.\,192]{chierchia_dynamics_1995} observes that cataphora with indefinite antecedents is surprisingly good in certain cases (see also \citealt{barkerShan2008}):
+
+  \ex. If John overcooks it\(_{a}\), a hamburger\(^{a}\) usually tastes bad.
+
+  \framebreak
+
+  We think that there is something else going on here. Notice that cataphora with indefinite antecedents becomes bad in an \textit{episodic} context.
+
+  \ex. *If John overcooks it\(_{a}\), a hamburger\(^{a}\) tastes bad.
+
+  We suspect that it's not a coincidence that apparent cataphora with indefinite antecedents seem to be licensed wherever the indefinite antecedent can receive a \textit{generic} reading.
+
+  We think that this case involves a reading of \textit{a hamburger} under which it is essentially a definite picking out a kind, although this is still a matter for future research.
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Prediction: local satisfaction bleeds cataphora}
+
+  We predict that in cases where the existential presupposition associated with a definite antecedent can be locally satisfied, it fails to license cataphora.
+
+  First, observe that in a conditional statement, when the preupposition of the consequent is contextually entailed by the antecedent, the conditional statement is globally presuppositionless.
+
+  \ex. If Chomsky is active, then the new Chomsky book is sold out.
+
+  \framebreak
+
+  We predict therefore that cataphora should be impossible in the following sentence:
+
+  \ex. Every student who pre-ordered it\(_{a}\) knows that\\
+  [If Chomsky is active, then his new book\(^{a}\) is sold out].
+
+  We're not sure about the facts here, so this is a matter for future research.
+
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}[allowframebreaks]{Summing up}
+
+  \begin{itemize}
+
+      \item Empirically, \textit{cataphoric sloppy donkeys} provide evidence for genuinely cataphoric semantic binding.
+
+      \item There is a natural tension with arguably the most successful theory of anaphora -- dynamic semantics -- which is tailored to block semantic binding that proceeds \textit{backwards}.
+
+      \item Our goal was to account for cataphora without jettisoning the results of dynamic semantics in the domain of anaphora.
+
+      \framebreak
+
+    \item Our hunch was that apparent cataphora with definite antecedents involves anaphora to the \textit{presupposition} introduced by the definite.
+
+    \item In order to cash out this intuition, we sketched a presuppositional variant of DPL, according to which presuppositions themselves are dynamic statements, and therefore can give rise to genuine dynamic binding.
+
+    \item There are surely further ramifications of this move. We leave a thorough exploration of the properties of this system to future work.
+
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Acknowledgements and thanks}
+
+  Thanks to audiences at LENLS Yokohama, Paris, and to Simon Charlow and Ezra Keshet for valuable comments and feedback.
+
+  If you have any follow-up questions, you can email us at:
+
+  \begin{itemize}
+
+      \item \texttt{\alert{y.sudo@ucl.ac.uk}}
+
+      \item \texttt{\alert{elliott@leibniz-zas.de}}
+
+  \end{itemize}
+
+\end{frame}
 
 \begin{frame}[allowframebreaks]{References}
 
+\setbeamertemplate{bibliography item}{}
  \printbibliography[heading=none]
 
 \end{frame}
