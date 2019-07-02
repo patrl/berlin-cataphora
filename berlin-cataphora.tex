@@ -1,4 +1,4 @@
-%!TEX TS-program = pdflatex
+%!TEX TS-program = pdflatexmk
 
 \documentclass{beamer}
 
@@ -73,7 +73,7 @@ Definite antecedents seem to allow \alert{cataphora}.
   \a. Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel3){the novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it3){\textcolor{green}{\bf it}};}]
   \b. Every [\textsubscript{NP} man who had \tikz[na]{\node[](it4){\textcolor{green}{\bf it}};}] [\textsubscript{VP} read \tikz[na]{\node[fill=green!10](novel4){the novel};}]
 
-One might say that \Last[b] does not involve {\bf binding}, but {\bf accidental coreference}.
+One might say that these cases do not involve {\bf binding}, but {\bf accidental coreference}.
 
 We argue that cataphoric binding is actually possible.
 
@@ -135,8 +135,8 @@ and she said [that \tikz[na]{\node[fill=green!10](jorge2){Jorge};} did \elide{me
 
 Donkey anaphora licenses sloppy readings.
 \ex.
-  Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel5){a Russian novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it5){\textcolor{green}{\bf it}};}], and\\
-  every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel6){a German novel};}] [\textsubscript{VP} did \elide{read \tikz[na]{\node[](it6){\textcolor{green}{\bf it}};}}], too.\\
+  Every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel5){a {\sc Russian} novel};}] [\textsubscript{VP} read \tikz[na]{\node[](it5){\textcolor{green}{\bf it}};}], and\\
+  every [\textsubscript{NP} man who had \tikz[na]{\node[fill=green!10](novel6){a {\sc German} novel};}] [\textsubscript{VP} did \elide{read \tikz[na]{\node[](it6){\textcolor{green}{\bf it}};}}], too.\\
 
 
 \begin{tikzpicture}[overlay]
@@ -144,7 +144,7 @@ Donkey anaphora licenses sloppy readings.
   \draw[green] (novel6.south) -- ++(0,-.30) -| (it6.south);
 \end{tikzpicture}
 
-See e.g., \citet{charlow_cross-categorial_2012}.
+%See e.g., \citet{charlow_cross-categorial_2012}.
 
 \end{frame}
 
