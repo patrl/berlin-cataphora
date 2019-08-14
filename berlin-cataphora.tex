@@ -35,9 +35,16 @@
  \maketitle
 \end{frame}
 
+\begin{frame}
+  \begin{center}
+    Slides:\\
+    \texttt{https://patrl.keybase.pub/slides/berlin-cataphora.pdf}
+  \end{center}
+\end{frame}
+
 \begin{frame}{L-to-R asymmetry with indefinite antecedents}
 
-Anaphora with indefinite antecedents shows left-to-right asymmetry.
+Anaphora with indefinite antecedents displays a left-to-right asymmetry.
 
 \ex. {\bf Cross-sentential anaphora}\bigskip
   \a. \tikz[na]{\node[fill=green!10](man1){A man};} came in, and \tikz[na]{\node[](he1){\textcolor{green}{\bf he}};} sat down.
@@ -149,7 +156,7 @@ Donkey anaphora licenses sloppy readings.
 \end{frame}
 
 
-\begin{frame}{Sloppy cataphora}
+\begin{frame}{Sloppy cataphoric donkeys}
   \ex.\label{sloppycataphora}
 %  Every \textsc{linguistics} professor who wanted to read it$_x$ bought the$^x$ book by Chomsky, and\\
 %  every \textsc{philosophy} professor who did \elide{want to read it$_y$} bought the book$^y$ by Yablo.
@@ -232,25 +239,26 @@ An indefinite antecedent doesn't allow binding:
 
   \metroset{block=fill}
   \begin{block}{The problem}
-    How do we account for the ability of definites to bind to their left without dispensing with the core results of dynamic semantics in the domain of anaphora with indefinite antecedents?
+    \textit{Sloppy cataphoric donkeys} show that cataphora is real.
+    How do we account for the ability of definites to bind to their left without dispensing with the core results of dynamic semantics?
   \end{block}
 
   \begin{block}{Our solution}
 Unlike orthodox dynamic binding of a definite by an indefinite, \textit{cataphora} involves binding by a \textit{presupposition}.
 
-We can't make sense of this in orthodox dynamic theories, so we develop a system in which \textit{presuppositions are themselves dynamic statements} in order to cash this out.
+We can't make sense of this in orthodox dynamic theories (e.g., \citeauthor{heim1982}'s FCS; \citeauthor{groenendijk_dynamic_1991}'s DPL), so we develop a system in which \textit{presuppositions are themselves dynamic statements} in order to cash this out.
   \end{block}
 
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Binding by presupposition}
+\begin{frame}{Notational preliminaries}
 
 We adopt the {\bf Sauerland notation} for presuppositions:
 $$\displaystyle\frac{\text{Presupposition}}{\text{Assertion}}$$
 
-Crucially, we take both the at-issue meaning and the presupposition to be dynamic statements.
+Crucially, we take both the at-issue meaning and the presupposition to be \textit{dynamic statements} -- i.e., relations between information states.
 
-We'll write dynamic statements using FoL syntax -- our formalisation is in Dynamic Predicate Logic (DPL) (\citealt{groenendijk_dynamic_1991}), which has the same syntax as FoL. See \citet{elliottSudoLenls,elliottSudoCat} for the details.
+We'll write dynamic statements in the syntax of First Order Logic -- our formalisation is in Dynamic Predicate Logic (DPL) (\citealt{groenendijk_dynamic_1991}), which has the same syntax as FoL. See \citet{elliottSudoLenls,elliottSudoCat} for the details.
 
 Bear in the mind that in DPL the scope of existentials extends across conjunction.
 
@@ -261,10 +269,10 @@ Bear in the mind that in DPL the scope of existentials extends across conjunctio
   \begin{description}[orthodox theories]
 
     \item[Orthodox theories]
-      Definites denote restricted variables.
+      Definites denote restricted variables (e.g., \citealt{heim1982}).
 
       \item[Our theory]
-      Definites contribute a variable to the assertion, and an existential statement to the \textit{presupposition}.
+      Definites are doubly indexed: they contribute a variable to the assertion, and an existential statement to the \textit{presupposition}.
 
   \end{description}
 
@@ -281,7 +289,7 @@ Bear in the mind that in DPL the scope of existentials extends across conjunctio
 
   \ex. $\text{Paul$^{a}_{x}$ sat down} \rightsquigarrow \displaystyle\frac{\exists ! a[a = x] \wedge x = Paul}{\ml{satDown}\,x}$
 
-  \ex. $\text{He$^{a}_{x}$ sat down} = \displaystyle\frac{\exists ! a[a = x]}{\ml{satDown}\,x}$
+  \ex. $\text{He$^{a}_{x}$ sat down} \rightsquigarrow \displaystyle\frac{\exists ! a[a = x]}{\ml{satDown}\,x}$
 
 \end{frame}
 
@@ -299,7 +307,7 @@ Bear in the mind that in DPL the scope of existentials extends across conjunctio
 
   We now have everything we need to account for cross-sentential cataphora.
 
-  \ex. He\(_{a}\) sat down. The new arrival\(^{a}\) yawned.
+  \ex. He\(_{a}\) sat down. The new arrival\(^{a}_{x}\) yawned.
 
  What happens to the presuppositions of the individual conjuncts? We assume that they \textit{project}, i.e., the presupposition of the first conjunct is sequenced with the presupposition of the second.
 
@@ -314,7 +322,7 @@ Bear in the mind that in DPL the scope of existentials extends across conjunctio
  \b. $\text{The new arrival\(^{a}_{x}\) yawned.}\rightsquigarrow\displaystyle\frac{\exists !a[\ml{newArrival}\,a] \wedge x = a}{\ml{yawned}\,x}$
 
 \ex. $\begin{aligned}[t]
-  &\text{He\(_{a}\) sat down. The new arrival\(^{a}_{x}\) yawned.}\\ &\rightsquigarrow\mathbb{A}\left(\displaystyle\frac{\exists ! a[\ml{newArrival}\,a] \wedge x = a}{\ml{satDown}\,a \wedge \ml{yawned}\,a}\right)\\
+  &\text{He\(_{a}\) sat down. The new arrival\(^{a}_{x}\) yawned.}\\ &\rightsquigarrow\mathbb{A}\left(\displaystyle\frac{\exists ! a[\ml{newArrival}\,a] \wedge x = a}{\ml{satDown}\,a \wedge \ml{yawned}\,x}\right)\\
 &\rightsquigarrow \exists ! a[\ml{newArrival}\,a] \wedge x =a \wedge \ml{satDown}\,a \wedge \ml{yawned}\,x\end{aligned}$
 
 \end{frame}
@@ -353,7 +361,7 @@ Bear in the mind that in DPL the scope of existentials extends across conjunctio
 
   First, observe that in a conditional statement, when the presupposition of the consequent is contextually entailed by the antecedent, the conditional statement is globally presuppositionless.
 
-  \ex. If Chomsky is publishing, then the new Chomsky book is sold out.
+  \ex. If Chomsky is publishing, then his new book is sold out.
 
   \framebreak
 
